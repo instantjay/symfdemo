@@ -3,20 +3,18 @@
 namespace App\Services;
 
 use App\Entities\Order;
+use App\Entities\OrderItem;
 
 class OrderService
 {
-    protected $emailService;
     protected $formattingService;
 
     /**
      * OrderService constructor.
-     * @param EmailService $emailService
      * @param FormattingService $formattingService
      */
-    public function __construct(EmailService $emailService, FormattingService $formattingService)
+    public function __construct(FormattingService $formattingService)
     {
-        $this->emailService = $emailService;
         $this->formattingService = $formattingService;
     }
 
@@ -27,6 +25,9 @@ class OrderService
      */
     public function calculateOrderTotal(Order $order, $applyProjectRounding = true)
     {
+        /**
+         * @var OrderItem[] $items
+         */
         $items = $order->getOrderItems();
 
         $total = 0;

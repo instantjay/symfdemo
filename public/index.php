@@ -2,21 +2,35 @@
 
 namespace App;
 
-use App\Entities\Order;
-use App\Entities\OrderItem;
-use App\Services\OrderService;
+use App\Services\EntityService;
 use App\System\Application;
 
 require_once(__DIR__.'/../vendor/autoload.php');
 
 $app = Application::getInstance();
 
-$orderService = $app->getServiceContainer()->get(OrderService::class);
+$desiredOrderId = 1;
 
-// Fake some data
-$order = new Order();
-$orderItem = new OrderItem();
-$order->addOrderItem($orderItem);
+// Getting an order using the EntityManager
+$entityService = $app->getServiceContainer()->get(EntityService::class);
+$em = $entityService->getEntityManager();
 
-// Call a method in a service that depends on other services (auto-wired). Should output 1.25
-echo $orderService->calculateOrderTotal($order, false);
+$orderRepository = $em->getRepository(\App\Entities\Order::class);
+/**
+ * @var \App\Entities\Order $order
+ */
+$order = $orderRepository->find($desiredOrderId);
+
+$order->getId(); // Should return 1;
+
+unset($order);
+
+// Getting an order using NPS' models
+$orderModel = new \App\Nosh\Models\OrderModel($app->getServiceContainer());
+
+$dataArray = $orderModel->find($desiredOrderId);
+
+$noshOrder = new \App\Nosh\Order();
+$noshOrder->load($dataArray);
+
+$noshOrder->getId(); // Should return 1;

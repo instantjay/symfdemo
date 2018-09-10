@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6ab2b951abb44bf791dc337315ab2c6",
+    "content-hash": "7dc9408470948ac8060b0056c05f0a88",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -605,6 +605,66 @@
                 "orm"
             ],
             "time": "2017-12-17T02:57:51+00:00"
+        },
+        {
+            "name": "jstayton/miner",
+            "version": "v0.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jstayton/Miner.git",
+                "reference": "faecfe9588fea1475d825d3995c9f11a674a3788"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jstayton/Miner/zipball/faecfe9588fea1475d825d3995c9f11a674a3788",
+                "reference": "faecfe9588fea1475d825d3995c9f11a674a3788",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.1.0"
+            },
+            "require-dev": {
+                "phpdocumentor/phpdocumentor": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Miner": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Justin Stayton",
+                    "email": "justin.stayton@gmail.com",
+                    "homepage": "http://justinstayton.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A dead simple PHP class for building SQL statements. No manual string concatenation necessary.",
+            "homepage": "https://github.com/jstayton/Miner",
+            "keywords": [
+                "crud",
+                "delete",
+                "insert",
+                "mysql",
+                "pdo",
+                "postgresql",
+                "queries",
+                "query",
+                "querybuilder",
+                "select",
+                "sequel",
+                "sql",
+                "sqlite",
+                "statement",
+                "statements",
+                "update"
+            ],
+            "time": "2014-03-29T23:46:01+00:00"
         },
         {
             "name": "psr/container",
@@ -2626,7 +2686,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^5.6.0"
+        "php": "^5.6.0",
+        "ext-pdo_mysql": "^1.0"
     },
     "platform-dev": []
 }
