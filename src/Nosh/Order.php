@@ -15,4 +15,9 @@ class Order
     {
         return $this->id;
     }
+
+    public function getProject()
+    {
+        // How would this work?
+    }
 }

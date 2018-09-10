@@ -23,6 +23,8 @@ $order = $orderRepository->find($desiredOrderId);
 
 $order->getId(); // Should return 1;
 
+$order->getProject(); // This will work
+
 unset($order);
 
 // Getting an order using NPS' models
@@ -34,3 +36,5 @@ $noshOrder = new \App\Nosh\Order();
 $noshOrder->load($dataArray);
 
 $noshOrder->getId(); // Should return 1;
+
+$noshOrder->getProject(); // This will NOT work.
