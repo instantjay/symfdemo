@@ -90,7 +90,7 @@ class Application
         }
 
         // Build and compile container
-        $cachedContainerPath = __DIR__ . '/../var/container.php';
+        $cachedContainerPath = dirname(__DIR__, 2) . '/var/container.php';
 
         if (!file_exists($cachedContainerPath)) {
             $cachedContainerPath = $this->compileServiceContainer($cachedContainerPath);

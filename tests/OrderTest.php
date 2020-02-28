@@ -17,7 +17,7 @@ class OrderTest extends TestCase
      */
     protected $order;
 
-    public function setUp()
+    public function setUp(): void
     {
         // Set up our test data.
         $product = new Product();
@@ -37,7 +37,7 @@ class OrderTest extends TestCase
         $this->order = $order;
     }
 
-    public function testOrderReturns()
+    public function testOrderReturns(): void
     {
         $this->assertNotEmpty($this->order->getOrderItems());
 
@@ -62,7 +62,7 @@ class OrderTest extends TestCase
         }
     }
 
-    public function testCalculateOrderTotal()
+    public function testCalculateOrderTotal(): void
     {
         $orderService = new OrderService(
             new FormattingService()
